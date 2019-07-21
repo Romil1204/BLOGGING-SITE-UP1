@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Place all CSS for header in this file -->
+    <link href='css\header.css' rel='stylesheet' type='text/css'>
+
+    <!-- Place all CSS for the rest of the elements in this file -->
+    <link href='css\index.css' rel='stylesheet' type='text/css'>
+
+	<!-- Place all CSS for fonts in this file -->
+    <link href='css\font.css' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script|Satisfy&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="main-container-div">
+
+        <div class="header">
+            <input id="topButtons1" type="button" value="Sign In" onclick="show1()">
+            <input id="topButtons2" type="button" value="Sign Up" onclick="show()">
+            <a id="pageTitle" class="logo-title">ScriBBler</a>
+            <p class="middleText">Explore.Imagine.Create</p>
+        </div> 
+           
+        <div class="postButtons">
+
+        	<button style="background-color: yellow;padding: 10px;position: absolute;top:275px;left:625px;cursor: pointer;">All Posts</button>
+            <button style="background-color: yellow;padding: 10px;position: absolute;top:275px;left:710px;cursor: pointer;">Create Post</button>
+
+        </div>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+             <span class="close" onclick="hide()">&times;</span>
+            <h1 style="text-align: center;">Get Started</h1>
+            <hr>
+            <form action="/action_page.php">
+            <label>Full Name</label><br>
+            <input type="text" class="inpfield" placeholder="Enter Full Name" required><br>
+            <label>UserName</label><br>
+            <input type="text" class="inpfield" placeholder="Enter UserName" required><br>
+            <label>Password</label><br>
+            <input type="password" class="inpfield" placeholder="Enter Password" required><br>
+            <label>Confirm Password</label><br>
+            <input type="password" class="inpfield" placeholder="Confirm Password" required><br>
+            <button style="width: 97%;background-color: green;margin: auto;padding: 10px;cursor: pointer;">Sign Up</button>
+        </form>
+        </div>
+    </div>
+
+    <div>
+
+    	<div id="modal1">
+        <div id="modal-content1">
+             <span class="close" onclick="hide()">&times;</span>
+            <h1 style="text-align: center;">Welcome Back!</h1>
+            <hr>
+            <form action="/action_page.php">
+            <label>UserName</label><br>
+            <input type="text" class="inpfield" placeholder="Enter UserName" required><br>
+            <label>Password</label><br>
+            <input type="password" class="inpfield" placeholder="Enter Password" required><br>
+            <button style="width: 97%;background-color: green;margin: auto;padding: 10px;cursor: pointer;">Sign In</button>
+        </form>
+        </div>
+        </div>
+
+    </div>
+
+    <div>
+
+    	<!-- Insert code for Create Post modal here -->
+
+    </div>
+
+	<!-- Place all Javascript for header in this file -->
+	<script src="js\header.js"></script>
+	<!-- Place all Javascript for rest of the elements in this file -->
+    <script src="js\index.js"></script>
+
+</body>
+</html>
