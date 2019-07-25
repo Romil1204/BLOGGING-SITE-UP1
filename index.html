@@ -1,84 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
 
-    <!-- Place all CSS for header in this file -->
-    <link href='css\header.css' rel='stylesheet' type='text/css'>
-
-    <!-- Place all CSS for the rest of the elements in this file -->
+<head>  
     <link href='css\index.css' rel='stylesheet' type='text/css'>
-
-	<!-- Place all CSS for fonts in this file -->
+    <link href='css\header.css' rel='stylesheet' type='text/css'>
     <link href='css\font.css' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Marck+Script|Satisfy&display=swap" rel="stylesheet">
-
+    <style>
+    </style>
 </head>
 <body>
     <div id="main-container-div">
-
         <div class="header">
-            <input id="topButtons1" type="button" value="Sign In" onclick="show1()">
-            <input id="topButtons2" type="button" value="Sign Up" onclick="show()">
+            <input id="signUpButtonClick" class="topButtons" type="button" onclick="openSignUpButton()" value="Sign Up">
+            <input id="loginButtonClick" class="topButtons" type="button" onclick="openSignIn()" value="Sign In">
             <a id="pageTitle" class="logo-title">ScriBBler</a>
-            <p class="middleText">Explore.Imagine.Create</p>
-        </div> 
+            <p class="middleText">Explore, Imagine, Create</p>
+        </div>
            
-        <div class="postButtons">
-
-        	<button style="background-color: yellow;padding: 10px;position: absolute;top:275px;left:625px;cursor: pointer;">All Posts</button>
-            <button style="background-color: yellow;padding: 10px;position: absolute;top:275px;left:710px;cursor: pointer;">Create Post</button>
-
+            <div class="postButtons">
+            <input id="allPostsClick" class="middleButtons" type="button" onclick="getAllPosts()" value="All Posts" />
+            <input id="newPostClick" class="middleButtons" type="button" onclick="openCreatePost()" value="Create Post">
         </div>
     </div>
 
-    <div id="modal">
-        <div id="modal-content">
-             <span class="close" onclick="hide()">&times;</span>
-            <h1 style="text-align: center;">Get Started</h1>
-            <hr>
-            <form action="/action_page.php">
-            <label>Full Name</label><br>
-            <input type="text" class="inpfield" placeholder="Enter Full Name" required><br>
-            <label>UserName</label><br>
-            <input type="text" class="inpfield" placeholder="Enter UserName" required><br>
-            <label>Password</label><br>
-            <input type="password" class="inpfield" placeholder="Enter Password" required><br>
-            <label>Confirm Password</label><br>
-            <input type="password" class="inpfield" placeholder="Confirm Password" required><br>
-            <button style="width: 97%;background-color: green;margin: auto;padding: 10px;cursor: pointer;">Sign Up</button>
+    <div id="signInModal" class="modal">
+            <form class="modal-content" action="/action_page.php">
+                <span onclick="onCloseModalClicked()" class="close_signIn" title="Close Modal">&times;</span>
+                <div class="container">
+                <h1>Welcome Back!</h1>
+                <hr>
+                <label for="Username" class="label">
+                    <b>Username</b>
+                </label>
+                <input type="text" placeholder="Enter Username" name="Username" required>
+
+                <label for="psw" class="label">
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <div class="clearfix" class="label">
+                    
+                    <button type="submit" class="signinbtn">Sign In</button>
+                </div>
+            </div>
+            <div id="signUpPrompt" class="signUpForm">Not a member?
+                <span id="" class="signUp" onclick="openSignUp()">Sign Up</span>
+            </div>
         </form>
+    </div>
+
+    <div id="signUpModal" class="modal">
+        <div class="modal-content-sigup">
+            <span onclick="onCloseModalClicked()" class="close_signIn" title="Close Modal">&times;</span>
+            <form class="modal-content-sigUp" action="/action_page.php">
+                <div class="container-signUp">
+
+                    <h1>Get Started</h1>
+                    <hr>
+                    <label for="Fullname" class="label">Full Name</label>
+                    <input type="text" placeholder="Enter Full Name" name="Fullname" required>
+                    <label for="Username" class="label">Username</label>
+                    <input type="text" placeholder="Enter Username" name="Username" required>
+                    <label for="psw" class="label">Password</label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="pswrepeat" class="label">Confirm Password</label>
+                    <input type="password" placeholder="Confirm Password" name="pswrepeat" required>
+                    <div class="clearfix">
+                            <button type="submit" class="signupbtn">Sign Up</button>
+                        <button type="button" class="cancelbtn">Clear</button>
+                        
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
-    <div>
-
-    	<div id="modal1">
-        <div id="modal-content1">
-             <span class="close" onclick="hide()">&times;</span>
-            <h1 style="text-align: center;">Welcome Back!</h1>
-            <hr>
-            <form action="/action_page.php">
-            <label>UserName</label><br>
-            <input type="text" class="inpfield" placeholder="Enter UserName" required><br>
-            <label>Password</label><br>
-            <input type="password" class="inpfield" placeholder="Enter Password" required><br>
-            <button style="width: 97%;background-color: green;margin: auto;padding: 10px;cursor: pointer;">Sign In</button>
-        </form>
+    <div id="newPostModal" class="newPostBox">
+        <div class="newPost-Content">
+            <span onclick="onCloseNewPost()" class="close_newPost">&times;</span>
+            <h1 id="formHeader">Create Your Post</h1>
+            <form id="newPostForm" action="/action_page.php">
+                <label for="newPostTitle">Title: </label>
+                <br />
+                <input id="newPostTitle" type="text" name="Title" class="post-title">
+                <br />
+                <br/>
+                <label for="postContent">Content: </label>
+                <textarea id="postContent" rows="27" cols="20" name="Content"></textarea>
+                <input id="newPostSubmit" type="submit" value="Create" align="right">
+            </form>
         </div>
-        </div>
-
     </div>
+    <script src=".\js\index.js"></script>
+    <script src=".\js\header.js">              
+    </script>
 
-    <div>
-
-    	<!-- Insert code for Create Post modal here -->
-
-    </div>
-
-	<!-- Place all Javascript for header in this file -->
-	<script src="js\header.js"></script>
-	<!-- Place all Javascript for rest of the elements in this file -->
-    <script src="js\index.js"></script>
 
 </body>
+
 </html>
